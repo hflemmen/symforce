@@ -40,6 +40,10 @@ jobs:
 
     - name: Install cibuildwheel
       run: python3 -m pip install cibuildwheel==2.11.2
+      
+    - uses: actions/checkout@v3
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
 
     - name: Build wheels
       run: python3 -m cibuildwheel --output-dir wheelhouse
