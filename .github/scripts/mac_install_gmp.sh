@@ -13,5 +13,6 @@ if [ "$CIBW_ARCHS_MACOS" = "arm64" ]; then
   response=$(./arm-homebrew/bin/brew fetch --force --bottle-tag=arm64_big_sur gmp | grep "Downloaded to: " | cut -c 16-)
   echo $response
   # parsed=($response)
-  ./arm-homebrew/bin/brew install $response
+  HOMEBREW_CURL_VERBOSE=1 ./arm-homebrew/bin/brew install curl
+  HOMEBREW_FORCE_BREWED_CURL=1 ./arm-homebrew/bin/brew install $response
 fi
